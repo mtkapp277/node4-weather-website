@@ -14,12 +14,13 @@ const forecast = ({ latitude, longitude }, callback) => {
         } else if (body.error) {
             callback(body.error, undefined)
         } else {
-            callback(undefined, {
-                temp: body.current.temperature,
-                feels: body.current.feelslike,
-                desc: body.current.weather_descriptions[0]
-            })
+            // callback(undefined, {
+            //     temp: body.current.temperature,
+            //     feels: body.current.feelslike,
+            //     desc: body.current.weather_descriptions[0]
+            // })
             //console.log(desc + '. It is currently ' + temp + '. it feels like ' + feels)
+            callback(undefined, 'It feels like ' + body.current.feelslike + '. It is currently ' + body.current.temperature + ' degress out. ' + body.current.weather_descriptions[0])
         }
     })
 }
